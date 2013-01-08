@@ -1,0 +1,9 @@
+default:
+    resource: "@DunglasChaplinDemoBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /
+
+post:
+    resource: "@DunglasChaplinDemoBundle/Controller/PostController.php"
+    type:     rest
+    prefix:   /api
