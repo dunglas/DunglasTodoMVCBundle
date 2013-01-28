@@ -1,9 +1,14 @@
 <?php
 
-namespace Dunglas\ChaplinDemoBundle\Tests\Controller;
+namespace Dunglas\TodoMVCBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Tests the default controller
+ * 
+ * @author Kévin Dunglas <dunglas@gmail.com>
+ */
 class DefaultControllerTest extends WebTestCase
 {
 
@@ -13,7 +18,7 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertTrue($crawler->filter('html:contains("Chaplin Boilerplate Application")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("TodoMVC")')->count() > 0);
     }
 
 }

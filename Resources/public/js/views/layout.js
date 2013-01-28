@@ -14,6 +14,18 @@ define(['chaplin'], function(Chaplin) {
       return Layout.__super__.constructor.apply(this, arguments);
     }
 
+    Layout.prototype.initialize = function() {
+      Layout.__super__.initialize.apply(this, arguments);
+      return this.subscribeEvent('todos:filter', this.changeFilterer);
+    };
+
+    Layout.prototype.changeFilterer = function(filterer) {
+      if (filterer == null) {
+        filterer = 'all';
+      }
+      return $('#todoapp').attr('class', "filter-" + filterer);
+    };
+
     return Layout;
 
   })(Chaplin.Layout);

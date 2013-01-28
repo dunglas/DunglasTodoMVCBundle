@@ -1,0 +1,32 @@
+{
+    "name": "dunglas/todomvc-bundle",
+    "type": "symfony-bundle",
+    "description": "This Bundle is a Symfony2 / Backbone.js / Chaplin.js implementation of TodoMVC",
+    "keywords": ["todoMVC", "backbone.js", "chaplin.js"],
+    "homepage": "http://dunglas.fr",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "authors": [
+    {
+        "name": "Kévin Dunglas",
+        "email": "dunglas@gmail.com",
+        "homepage": "http://dunglas.fr"
+    }
+    ],
+
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle": ">=2.1,<2.3-dev",
+        "jms/serializer-bundle": "0.9",
+        "friendsofsymfony/rest-bundle": "0.10"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "Dunglas\\TodoMVCBundle": ""
+        }
+    },
+
+    "target-dir": "Dunglas/TodoMVCBundle"
+}
+}

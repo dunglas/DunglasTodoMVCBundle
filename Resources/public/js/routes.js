@@ -3,6 +3,8 @@
 define(function() {
   'use strict';
   return function(match) {
-    return match('', 'helloWorld#show');
+    match('test', 'index#test');
+    match(':filterer', 'index#list');
+    return match('', 'index#list');
   };
 });
