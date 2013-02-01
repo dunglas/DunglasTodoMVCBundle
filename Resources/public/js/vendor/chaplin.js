@@ -1045,6 +1045,8 @@ module.exports = CollectionView = function(_super) {
     CollectionView.prototype.renderItems = true;
     CollectionView.prototype.animationDuration = 500;
     CollectionView.prototype.useCssAnimation = false;
+    CollectionView.prototype.animationStartClass = "animated-item-view";
+    CollectionView.prototype.animationEndClass = "animated-item-view-end";
     CollectionView.prototype.listSelector = null;
     CollectionView.prototype.$list = null;
     CollectionView.prototype.fallbackSelector = null;
@@ -1257,7 +1259,7 @@ module.exports = CollectionView = function(_super) {
         if (included) {
             if (enableAnimation) {
                 if (this.useCssAnimation) {
-                    $viewEl.addClass("animated-item-view");
+                    $viewEl.addClass(this.animationStartClass);
                 } else {
                     $viewEl.css("opacity", 0);
                 }
@@ -1286,7 +1288,7 @@ module.exports = CollectionView = function(_super) {
         if (enableAnimation && included) {
             if (this.useCssAnimation) {
                 setTimeout(function() {
-                    return $viewEl.addClass("animated-item-view-end");
+                    return $viewEl.addClass(_this.animationEndClass);
                 }, 0);
             } else {
                 $viewEl.animate({
@@ -1558,7 +1560,7 @@ module.exports = Router = function() {
             pushState: true,
             root: "/"
         });
-        this.removeRoot = new RegExp(utils.escapeRegExp(this.options.root) + "(#)?");
+        this.removeRoot = new RegExp("^" + utils.escapeRegExp(this.options.root) + "(#)?");
         this.subscribeEvent("!router:route", this.routeHandler);
         this.subscribeEvent("!router:routeByName", this.routeByNameHandler);
         this.subscribeEvent("!router:reverse", this.reverseHandler);

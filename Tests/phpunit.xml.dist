@@ -1,0 +1,5 @@
+<phpunit bootstrap="Tests/bootstrap.php">
+    <php>
+        <server name="KERNEL_DIR" value="Tests/Controller/App" />
+    </php>
+</phpunit>

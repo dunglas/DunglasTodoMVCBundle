@@ -1,0 +1,3 @@
+dunglas_todomvc:
+    resource: "@DunglasTodoMVCBundle/Resources/config/routing.yml"
+    prefix:   /
