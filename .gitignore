@@ -2,5 +2,5 @@ composer.phar
 composer.lock
 phpunit.xml
 vendor
-Tests/Controller/App/cache/*
+Tests/Functional/app/cache/*
 .DS_Store

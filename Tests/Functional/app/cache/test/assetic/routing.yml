@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: /Users/dunglas/workspace/pricewatcher/src/Dunglas/TodoMVCBundle/Tests/Functional/app/config/routing.yml
