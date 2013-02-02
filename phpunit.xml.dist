@@ -1,5 +1,5 @@
 <phpunit bootstrap="Tests/bootstrap.php">
     <php>
-        <server name="KERNEL_DIR" value="Tests/Controller/App" />
+        <server name="KERNEL_DIR" value="Tests/Functional/app" />
     </php>
 </phpunit>

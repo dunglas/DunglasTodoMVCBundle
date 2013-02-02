@@ -82,6 +82,12 @@ If you want to rebuild the client-side CoffeScript code go to the `Ressources/` 
 Add the `--watch` option to recompile at each change.
 Of course you need the CoffeeScript compiler.
 
+Security
+--------
+
+TodoMVC is unsecure by design. Everyone can do everything.
+If you create a real life Symfony + Backbone.js app be sure to add an authentification system and a CSRF protection layer.
+
 Credits
 -------
 
