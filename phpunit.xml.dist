@@ -2,4 +2,10 @@
     <php>
         <server name="KERNEL_DIR" value="Tests/Functional/app" />
     </php>
+
+    <testsuites>
+        <testsuite name="DunglasTodoMVCBundle Test Suite">
+            <directory>./Tests/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>
