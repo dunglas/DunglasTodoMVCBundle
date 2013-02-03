@@ -4,4 +4,4 @@ php:
   - "5.3"
 
 before_script:
-  - composer install
+  - composer update
