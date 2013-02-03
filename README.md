@@ -8,6 +8,8 @@ This a [Symfony](http://symfony.com) implementation of [TodoMVC](http://todomvc.
 It uses [Backbone.js](http://backbonejs.org/) and [Chaplin.js](http://chaplinjs.org/) client-side and [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle) for the REST JSON API server-side.
 The client-side code is wrote in [CoffeeScript](http://coffeescript.org/).
 
+[![Build Status](https://travis-ci.org/dunglas/DunglasTodoMVCBundle.png)](https://travis-ci.org/dunglas/DunglasTodoMVCBundle)
+
 Screenshot
 ----------
 
