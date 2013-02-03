@@ -10,6 +10,11 @@ The client-side code is wrote in [CoffeeScript](http://coffeescript.org/).
 
 [![Build Status](https://travis-ci.org/dunglas/DunglasTodoMVCBundle.png)](https://travis-ci.org/dunglas/DunglasTodoMVCBundle)
 
+Demo
+----
+
+Try it online: http://symfony-todomvc.dunglas.fr/
+
 Screenshot
 ----------
 
@@ -68,11 +73,19 @@ dunglas_todomvc:
     prefix:   /
 ```
 
-Last step, isntall the assets:
+Install assets:
 
     php app/console assets:install web
 
-Open *http://localhost/app_dev.php* in your browser and try this Symfony implementation of TodoMVC.
+Dump assets if you want to use the app in prod mode:
+
+    php app/console assetic:dump --env=prod --no-debug
+
+Create database schema:
+
+    php app/console doctrine:schema:create
+
+Done! Open *http://localhost/app_dev.php* in your browser and try this Symfony implementation of TodoMVC.
 
 Compile the client side-code
 ----------------------------
@@ -89,6 +102,11 @@ Security
 
 TodoMVC is unsecure by design. Everyone can do everything.
 If you create a real life Symfony + Backbone.js app be sure to add an authentification system and a CSRF protection layer.
+
+Go further
+----------
+
+[Utiliser Chaplin.js et Backbone.js avec Symfony 2 : installation et configuration](http://dunglas.fr/2012/12/utiliser-chaplin-js-et-backbone-js-avec-symfony-2-installation-et-configuration/)
 
 Credits
 -------
