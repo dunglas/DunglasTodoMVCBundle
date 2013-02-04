@@ -26,7 +26,7 @@ Install
 -------
 
 First, [install Symfony using Composer](http://symfony.com/doc/current/book/installation.html).
-Go yo your application directory and use composer to install the bundle and its dependencies:
+Go to your application directory and use composer to install the bundle and its dependencies:
 
     composer require dunglas/todomvc-bundle dev-master
 
