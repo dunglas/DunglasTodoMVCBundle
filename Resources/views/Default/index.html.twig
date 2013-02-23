@@ -53,19 +53,19 @@
 		<p>Created by <a href="http://dunglas.fr">Kévin Dunglas</a></p>
 		<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 	</footer>
-        
+
         {% javascripts '@DunglasTodoMVCBundle/Resources/public/js/vendor/require-2.1.4.js' %}
         <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
         <script>
         window.Api = {
-            get_todos: '{{ path('get_todos')|escape('js') }}' 
+            get_todos: '{{ path('get_todos')|escape('js') }}'
         }
 
         window.Data = {
             todos: {{ todos|serialize|raw }}
         }
-    
+
         // Configure the AMD module loader
         requirejs.config({
           // The path where your JavaScripts are located

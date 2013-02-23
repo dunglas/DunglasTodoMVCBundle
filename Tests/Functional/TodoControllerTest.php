@@ -16,7 +16,7 @@ class TodoControllerTest extends WebTestCase
     protected function setUp()
     {
         $this->client = static::createClient();
-        
+
         parent::setUp();
     }
 
@@ -45,7 +45,7 @@ class TodoControllerTest extends WebTestCase
         $this->assertArrayHasKey('title', $todo);
         $this->assertArrayHasKey('completed', $todo);
         $this->assertEquals(static::POST_BODY1, $todo['title']);
-        
+
         return $todo['id'];
     }
 
@@ -58,7 +58,7 @@ class TodoControllerTest extends WebTestCase
         $response = $this->client->getResponse();
 
         $this->assertJson($response);
-        
+
         $todos = json_decode($response->getContent(), true);
         /* $found = array_reduce($todos, function ($result, $item) use ($id) {
           return $result || $item['id'] === $id;

@@ -40,11 +40,10 @@ class Todo
      */
     private $completed = false;
 
-
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -54,20 +53,20 @@ class Todo
     /**
      * Set title
      *
-     * @param string $title
+     * @param  string $title
      * @return Todo
      */
     public function setTitle($title)
     {
         $this->title = $title;
-    
+
         return $this;
     }
 
     /**
      * Get title
      *
-     * @return string 
+     * @return string
      */
     public function getTitle()
     {
@@ -77,20 +76,20 @@ class Todo
     /**
      * Set completed
      *
-     * @param boolean $completed
+     * @param  boolean $completed
      * @return Todo
      */
     public function setCompleted($completed)
     {
         $this->completed = $completed;
-    
+
         return $this;
     }
 
     /**
      * Get completed
      *
-     * @return boolean 
+     * @return boolean
      */
     public function getCompleted()
     {

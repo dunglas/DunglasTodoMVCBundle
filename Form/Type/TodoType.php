@@ -8,7 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
  * Todo form
- * 
+ *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 class TodoType extends AbstractType

@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 /**
  * Serves the homepage
- * 
+ *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 class DefaultController extends Controller
@@ -20,7 +20,7 @@ class DefaultController extends Controller
     public function indexAction()
     {
         $todos = $this->getDoctrine()->getRepository('DunglasTodoMVCBundle:Todo')->findAll();
-        
+
         return array('todos' => $todos);
     }
 }

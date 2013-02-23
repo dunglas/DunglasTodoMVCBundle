@@ -9,7 +9,7 @@ use Dunglas\TodoMVCBundle\Form\Type\TodoType;
 
 /**
  * JSON API
- * 
+ *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */
 class TodoController extends FOSRestController implements ClassResourceInterface
@@ -27,9 +27,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Validates and saves the todo
-     * 
-     * @param Dunglas\ChaplinDemoBundle\Entity\Todo $todo
-     * @param bool $new New object?
+     *
+     * @param  Dunglas\ChaplinDemoBundle\Entity\Todo $todo
+     * @param  bool                                  $new  New object?
      * @return View
      */
     private function processForm(Todo $todo, $new = false)
@@ -42,9 +42,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
         $data = $this->getRequest()->request->all();
         $children = $form->all();
         $toBind = array_intersect_key($data, $children);
-        
+
         $form->bind($toBind);
-        
+
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($todo);
@@ -58,7 +58,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Creates
-     * 
+     *
      */
     public function cpostAction()
     {
@@ -77,8 +77,8 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Reads (an element)
-     * 
-     * @param int $id
+     *
+     * @param  int                   $id
      * @throws NotFoundHttpException
      */
     public function getAction($id)
@@ -93,7 +93,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Updates
-     * 
+     *
      * @param int $todo
      */
     public function putAction($id)
@@ -108,8 +108,8 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Deletes
-     * 
-     * @param int $id
+     *
+     * @param  int                   $id
      * @throws NotFoundHttpException
      */
     public function deleteAction($id)

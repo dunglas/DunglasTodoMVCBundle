@@ -13,8 +13,8 @@ class JsonToFormDecoder implements DecoderInterface
 {
 
     /**
-     * Makes data decoded from JSON application/x-www-form-encoded compliant 
-     * 
+     * Makes data decoded from JSON application/x-www-form-encoded compliant
+     *
      * @param array $data
      */
     private function xWwwFormEncodedLike(&$data)
