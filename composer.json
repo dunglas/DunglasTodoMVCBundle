@@ -5,7 +5,6 @@
     "keywords": ["todoMVC", "backbone.js", "chaplin.js"],
     "homepage": "http://dunglas.fr",
     "license": "MIT",
-    "minimum-stability": "dev",
     "authors": [
     {
         "name": "Kévin Dunglas",
@@ -16,21 +15,17 @@
 
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.1.*",
+        "symfony/symfony": "2.3.*",
         "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.1.*",
-        "twig/extensions": "1.0.*@dev",
-        "symfony/assetic-bundle": "2.1.*",
-        "symfony/swiftmailer-bundle": "2.1.*",
-        "symfony/monolog-bundle": "2.1.*",
-        "sensio/distribution-bundle": "2.1.*",
-        "sensio/framework-extra-bundle": "2.1.*",
-        "sensio/generator-bundle": "2.1.*",
-        "jms/security-extra-bundle": "1.2.*",
-        "jms/di-extra-bundle": "1.1.*",
-        "kriswallsmith/assetic": "1.1.*@dev",
-        "jms/serializer-bundle": "0.9",
-        "friendsofsymfony/rest-bundle": "0.10"
+        "doctrine/doctrine-bundle": "1.2.*",
+        "twig/extensions": "1.0.*",
+        "symfony/assetic-bundle": "2.3.*",
+        "symfony/monolog-bundle": "2.3.*",
+        "sensio/distribution-bundle": "2.3.*",
+        "sensio/framework-extra-bundle": "2.3.*",
+        "sensio/generator-bundle": "2.3.*",
+        "jms/serializer-bundle": "0.12.*",
+        "friendsofsymfony/rest-bundle": "0.13.*"
     },
 
     "autoload": {
@@ -38,6 +33,11 @@
             "Dunglas\\TodoMVCBundle": ""
         }
     },
-
-    "target-dir": "Dunglas/TodoMVCBundle"
+    
+    "target-dir": "Dunglas/TodoMVCBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.3-dev"
+        }
+    }
 }

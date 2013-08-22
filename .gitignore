@@ -4,3 +4,4 @@ phpunit.xml
 vendor
 Tests/Functional/app/cache/*
 .DS_Store
+nbproject/

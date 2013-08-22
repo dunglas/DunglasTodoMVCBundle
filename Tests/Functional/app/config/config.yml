@@ -1,5 +1,5 @@
 framework:
-    secret:          les-tilleuls.cop
+    secret:          les-tilleuls.coop
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
         strict_requirements: "%kernel.debug%"
@@ -8,7 +8,6 @@ framework:
     validation:      { enable_annotations: true }
     templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
     default_locale:  en
-    trust_proxy_headers: false # Deprecated in 2.0; will be removed in 2.3 (used trusted_proxies instead)
     trusted_proxies: ~
     test: ~
     session:
@@ -28,9 +27,6 @@ monolog:
             type:  stream
             path:  %kernel.logs_dir%/%kernel.environment%.log
             level: debug
-
-swiftmailer:
-    disable_delivery: true
 
 twig:
     debug:            "%kernel.debug%"
@@ -58,4 +54,4 @@ fos_rest:
         default_format: json
     body_listener:
         decoders:
-            json: dunglas.decoder.jsonToForm
+            json: fos_rest.decoder.jsontoform

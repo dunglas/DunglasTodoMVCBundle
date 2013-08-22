@@ -38,7 +38,7 @@ public function registerBundles()
 {
     return array(
         // ...
-        new JMS\SerializerBundle\JMSSerializerBundle($this),
+        new JMS\SerializerBundle\JMSSerializerBundle(),
         new FOS\RestBundle\FOSRestBundle(),
         new Dunglas\TodoMVCBundle\DunglasTodoMVCBundle(),
         // ...
@@ -54,7 +54,7 @@ fos_rest:
         default_format: json
     body_listener:
         decoders:
-            json: dunglas.decoder.jsonToForm
+            json: fos_rest.decoder.jsontoform
 ```
 
 Add DunglasTodoMVCBundle to Assetic's bundles option in `config.yml`:
@@ -107,6 +107,11 @@ Go further
 ----------
 
 [Utiliser Chaplin.js et Backbone.js avec Symfony 2 : installation et configuration](http://dunglas.fr/2012/12/utiliser-chaplin-js-et-backbone-js-avec-symfony-2-installation-et-configuration/)
+
+TODO
+----
+
+* [Configure](http://symfony.com/doc/current/cookbook/bundles/prepend_extension.html) FOSRestBundle and AsseticBundle directly in the extension
 
 Credits
 -------

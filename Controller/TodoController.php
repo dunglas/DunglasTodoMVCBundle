@@ -28,9 +28,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Validates and saves the todo
      *
-     * @param  Dunglas\ChaplinDemoBundle\Entity\Todo $todo
-     * @param  bool                                  $new  New object?
-     * @return View
+     * @param  Todo                                       $todo
+     * @param  bool                                       $new  New object?
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     private function processForm(Todo $todo, $new = false)
     {
@@ -46,7 +46,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
         $form->bind($toBind);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getEntityManager();
+            $em = $this->getDoctrine()->getManager();
             $em->persist($todo);
             $em->flush();
 
@@ -59,6 +59,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Creates
      *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function cpostAction()
     {
@@ -67,6 +68,8 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
     /**
      * Reads (all the collection)
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function cgetAction()
     {
@@ -78,8 +81,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Reads (an element)
      *
-     * @param  int                   $id
-     * @throws NotFoundHttpException
+     * @param  int                                                           $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function getAction($id)
     {
@@ -94,7 +98,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Updates
      *
-     * @param int $todo
+     * @param  int                                                           $todo
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function putAction($id)
     {
@@ -109,8 +115,9 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Deletes
      *
-     * @param  int                   $id
-     * @throws NotFoundHttpException
+     * @param  int                                                           $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function deleteAction($id)
     {
@@ -119,7 +126,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
             throw $this->createNotFoundException();
         }
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $em->remove($todo);
         $em->flush();
 

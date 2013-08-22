@@ -22,11 +22,19 @@ class TodoControllerTest extends WebTestCase
 
     private function request($method, $uri, $data = null)
     {
+        $server = array('HTTP_ACCEPT' => 'application/json');
 
-        $this->client->request($method, $uri, array(), array(), $data === null ? array() : array('CONTENT_TYPE' => 'application/json'), $data === null ? null : json_encode($data));
+        $this->client->request(
+            $method,
+            $uri,
+            array(),
+            array(),
+            $data === null ? $server : $server + array('CONTENT_TYPE' => 'application/json'),
+            $data === null ? null : json_encode($data)
+        );
     }
 
-    private function assertJson($response)
+    private function assertResponseIsJson($response)
     {
         $this->assertTrue(
                 $response->headers->contains('Content-Type', 'application/json')
@@ -38,7 +46,7 @@ class TodoControllerTest extends WebTestCase
         $this->request('POST', '/api/todos', array('title' => static::POST_BODY1, 'completed' => true));
         $response = $this->client->getResponse();
 
-        $this->assertJson($response);
+        $this->assertResponseIsJson($response);
 
         $todo = json_decode($response->getContent(), true);
         $this->assertArrayHasKey('id', $todo);
@@ -57,12 +65,9 @@ class TodoControllerTest extends WebTestCase
         $this->request('GET', '/api/todos');
         $response = $this->client->getResponse();
 
-        $this->assertJson($response);
+        $this->assertResponseIsJson($response);
 
         $todos = json_decode($response->getContent(), true);
-        /* $found = array_reduce($todos, function ($result, $item) use ($id) {
-          return $result || $item['id'] === $id;
-          }, false); */
 
         $found = false;
         foreach ($todos as $todo) {
@@ -85,7 +90,7 @@ class TodoControllerTest extends WebTestCase
         $this->request('PUT', '/api/todos/' . $id, array('title' => static::POST_BODY2, 'completed' => false));
         $response = $this->client->getResponse();
 
-        $this->assertJson($response);
+        $this->assertResponseIsJson($response);
         $this->assertEquals(204, $response->getStatusCode());
 
         return $id;
@@ -116,7 +121,7 @@ class TodoControllerTest extends WebTestCase
         $this->request('DELETE', '/api/todos/' . $id);
         $response = $this->client->getResponse();
 
-        $this->assertJson($response);
+        $this->assertResponseIsJson($response);
         $this->assertEquals(204, $response->getStatusCode());
     }
 
@@ -128,7 +133,7 @@ class TodoControllerTest extends WebTestCase
         $this->request('GET', '/api/todos');
         $response = $this->client->getResponse();
 
-        $this->assertJson($response);
+        $this->assertResponseIsJson($response);
 
         $todos = json_decode($response->getContent(), true);
         $found = false;

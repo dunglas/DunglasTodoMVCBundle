@@ -16,6 +16,8 @@ class DefaultController extends Controller
     /**
      * @Route("/{filter}", defaults={"filter" = 1})
      * @Template()
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
     {
