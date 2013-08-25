@@ -4,5 +4,6 @@ composer.lock
 phpunit.xml
 vendor
 Tests/Functional/app/cache/*
+Tests/Functional/app/logs/*
 .DS_Store
 nbproject/
