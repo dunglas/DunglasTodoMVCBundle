@@ -1,8 +1,14 @@
 language: php
 php:
-  - "5.5"
-  - "5.4"
-  - "5.3"
+  - 5.5
+  - 5.4
+  - 5.3
+  - hhvm
+
 
 before_script:
   - composer update
+
+matrix:
+  allow_failures:
+    - php: hhvm
