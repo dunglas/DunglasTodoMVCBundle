@@ -5,10 +5,11 @@ This a [Symfony](http://symfony.com) implementation of [TodoMVC](http://todomvc.
 
 > TodoMVC is a project which offers the same Todo application implemented using MV* concepts in most of the popular JavaScript MV\* frameworks of today.
 
-It uses [Backbone.js](http://backbonejs.org/) and [Chaplin.js](http://chaplinjs.org/) client-side and [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle) for the REST JSON API server-side.
-The client-side code is wrote in [CoffeeScript](http://coffeescript.org/).
+Server-side, it uses [FOSRestBundle](https://github.com/FriendsOfSymfony/FOSRestBundle) as REST API generator, [JMSSerializerBundle](http://jmsyst.com/bundles/JMSSerializerBundle) as JSON serializer and [DunglasAngularCsrfBundle](http://dunglas.fr/2014/01/dunglasangularcsrfbundle-protect-your-symfony-angularjs-apps-of-csrf-attacks/) to protect the app against CSRF attacks.
+Client-side, [Backbone.js](http://backbonejs.org/) and [Chaplin.js](http://chaplinjs.org/) are used and the code is wrote in [CoffeeScript](http://coffeescript.org/).
 
 [![Build Status](https://travis-ci.org/dunglas/DunglasTodoMVCBundle.png)](https://travis-ci.org/dunglas/DunglasTodoMVCBundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/5e9a994d-bcdd-40cf-8e90-68c77f121b18/mini.png)](https://insight.sensiolabs.com/projects/5e9a994d-bcdd-40cf-8e90-68c77f121b18)
 
 Demo
 ----
@@ -67,7 +68,7 @@ Create database schema:
 
     php app/console doctrine:schema:create
 
-Done! Open *http://localhost/app_dev.php* in your browser and try this Symfony implementation of TodoMVC.
+Done! Open *http://localhost/app_dev.php/* (don't forget the trailing slash) in your browser and try this Symfony implementation of TodoMVC.
 
 Compile the client side-code
 ----------------------------
@@ -94,6 +95,6 @@ Credits
 -------
 
 This bundle has been created by [Kévin Dunglas](http://dunglas.fr).
-The CoffeeScript code is largely inspired of the [Brunch + Chaplin TodoMVC implementation](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/chaplin-brunch) of [Paul Millr](http://paulmillr.com/).
+The CoffeeScript code is largely inspired of an old implementation of [Brunch + Chaplin TodoMVC implementation](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/chaplin-brunch) by [Paul Millr](http://paulmillr.com/).
 
 ![TodoMVC](https://raw.github.com/addyosmani/todomvc/gh-pages/media/logo.png)
