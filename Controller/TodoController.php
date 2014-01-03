@@ -15,6 +15,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Routing\ClassResourceInterface;
 use Dunglas\TodoMVCBundle\Entity\Todo;
 use Dunglas\TodoMVCBundle\Form\Type\TodoType;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * JSON API
@@ -27,7 +28,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Gets the Todo repository
      *
-     * @return Doctrine\Common\Persistence\AbstractManagerRegistry
+     * @return \Doctrine\Common\Persistence\AbstractManagerRegistry
      */
     private function getTodoRepository()
     {
@@ -37,22 +38,23 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Validates and saves the todo
      *
-     * @param  Todo                                       $todo
-     * @param  bool                                       $new  New object?
+     * @param  Todo $todo
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param  bool $new New object?
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    private function processForm(Todo $todo, $new = false)
+    private function processForm(Todo $todo, Request $request, $new = false)
     {
         $statusCode = $new ? 201 : 204;
 
         $form = $this->createForm(new TodoType(), $todo);
         // Remove the ID automatically send by Backbone.js (and any other extra fields)
         // http://stackoverflow.com/a/10584965
-        $data = $this->getRequest()->request->all();
+        $data = $request->request->all();
         $children = $form->all();
         $toBind = array_intersect_key($data, $children);
 
-        $form->bind($toBind);
+        $form->submit($toBind);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -68,11 +70,12 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Creates
      *
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function cpostAction()
+    public function cpostAction(Request $request)
     {
-        return $this->processForm(new Todo(), true);
+        return $this->processForm(new Todo(), $request, true);
     }
 
     /**
@@ -107,18 +110,19 @@ class TodoController extends FOSRestController implements ClassResourceInterface
     /**
      * Updates
      *
-     * @param  int                                                           $todo
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param  int                                                           $id
+     * @param  \Symfony\Component\HttpFoundation\Request                     $request
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function putAction($id)
+    public function putAction($id, Request $request)
     {
         $todo = $this->getTodoRepository()->find($id);
         if (!$todo) {
             throw $this->createNotFoundException();
         }
 
-        return $this->processForm($todo);
+        return $this->processForm($todo, $request);
     }
 
     /**
@@ -141,5 +145,4 @@ class TodoController extends FOSRestController implements ClassResourceInterface
 
         return $this->handleView($this->view(null, 204));
     }
-
 }

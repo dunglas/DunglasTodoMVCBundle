@@ -18,7 +18,7 @@ Try it online: http://symfony-todomvc.dunglas.fr/
 Screenshot
 ----------
 
-![screenshot](https://raw.github.com/addyosmani/todomvc/gh-pages/screenshot.png)
+![screenshot](http://dunglas.fr/wp-content/uploads/2013/02/screenshot-symfony-todomvc.png)
 
 Yes, this is TodoMVC.
 
@@ -40,29 +40,11 @@ public function registerBundles()
         // ...
         new JMS\SerializerBundle\JMSSerializerBundle(),
         new FOS\RestBundle\FOSRestBundle(),
+        new Dunglas\AngularCsrfBundle\DunglasAngularCsrfBundle(),
         new Dunglas\TodoMVCBundle\DunglasTodoMVCBundle(),
         // ...
     );
 }
-```
-
-Add these lines at the end of `app/config/config.yml`:
-
-```yaml
-fos_rest:
-    routing_loader:
-        default_format: json
-    body_listener:
-        decoders:
-            json: fos_rest.decoder.jsontoform
-```
-
-Add DunglasTodoMVCBundle to Assetic's bundles option in `config.yml`:
-
-```yaml
-assetic:
-    #...
-    bundles:        [ DunglasTodoMVCBundle ]
 ```
 
 And the routes to `app/config/routing.yml`:
@@ -90,7 +72,7 @@ Done! Open *http://localhost/app_dev.php* in your browser and try this Symfony i
 Compile the client side-code
 ----------------------------
 
-If you want to rebuild the client-side CoffeScript code go to the `Ressources/` directory and run:
+If you want to rebuild the client-side CoffeScript code go to the `Resources/` directory and run:
 
     coffee --bare --output public/js/ coffee/
 
@@ -101,17 +83,12 @@ Security
 --------
 
 TodoMVC is unsecure by design. Everyone can do everything.
-If you create a real world Symfony + Backbone.js app be sure to add an authentification system and a CSRF protection layer.
+If you create a real world Symfony + Backbone.js app be sure to add an authentification system.
 
 Go further
 ----------
 
-[Utiliser Chaplin.js et Backbone.js avec Symfony 2 : installation et configuration](http://dunglas.fr/2012/12/utiliser-chaplin-js-et-backbone-js-avec-symfony-2-installation-et-configuration/)
-
-TODO
-----
-
-* [Configure](http://symfony.com/doc/current/cookbook/bundles/prepend_extension.html) FOSRestBundle and AsseticBundle directly in the extension
+In french: [Utiliser Chaplin.js et Backbone.js avec Symfony 2 : installation et configuration](http://dunglas.fr/2012/12/utiliser-chaplin-js-et-backbone-js-avec-symfony-2-installation-et-configuration/)
 
 Credits
 -------

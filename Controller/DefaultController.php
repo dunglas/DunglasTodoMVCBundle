@@ -23,7 +23,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/{filter}", defaults={"filter" = 1})
+     * @Route("/{filter}", defaults={"filter" = 1}, name="todomvc_index")
      * @Template()
      *
      * @return \Symfony\Component\HttpFoundation\Response

@@ -17,27 +17,9 @@ web_profiler:
     toolbar: false
     intercept_redirects: false
 
-monolog:
-    handlers:
-        main:
-            type:         fingers_crossed
-            action_level: error
-            handler:      nested
-        nested:
-            type:  stream
-            path:  %kernel.logs_dir%/%kernel.environment%.log
-            level: debug
-
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
-assetic:
-    debug:          "%kernel.debug%"
-    use_controller: true
-    bundles:        [ DunglasTodoMVCBundle ]
-    filters:
-        cssrewrite: ~
 
 doctrine:
     dbal:
@@ -48,10 +30,3 @@ doctrine:
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
-
-fos_rest:
-    routing_loader:
-        default_format: json
-    body_listener:
-        decoders:
-            json: fos_rest.decoder.jsontoform

@@ -6,9 +6,8 @@
 # file that was distributed with this source code.
 
 define [
-  'underscore'
   'chaplin'
-], (_, Chaplin) ->
+], (Chaplin) ->
   'use strict'
 
   # Application-specific utilities
@@ -18,9 +17,5 @@ define [
   utils = Chaplin.utils.beget Chaplin.utils
 
   # Add additional application-specific properties and methods
-
-  # _(utils).extend
-  #   someProperty: 'foo'
-  #   someMethod: ->
 
   utils

@@ -1,0 +1,22 @@
+{
+  "name": "chaplin",
+  "version": "0.11.3",
+  "description": "Chaplin.js",
+  "main": "chaplin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chaplinjs/downloads.git"
+  },
+  "author": "Chaplin team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chaplinjs/downloads/issues"
+  },
+  "dependencies": {
+    "backbone": "~1.0.0",
+    "underscore": "~1.5.1"
+  }
+}

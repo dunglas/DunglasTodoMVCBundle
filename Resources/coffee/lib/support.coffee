@@ -6,10 +6,9 @@
 # file that was distributed with this source code.
 
 define [
-  'underscore'
   'lib/utils'
   'chaplin'
-], (_, utils, Chaplin) ->
+], (utils, Chaplin) ->
   'use strict'
   
   # Application-specific feature detection
@@ -19,9 +18,5 @@ define [
   support = utils.beget Chaplin.support
 
   # Add additional application-specific properties and methods
-
-  # _(support).extend
-  #   someProperty: 'foo'
-  #   someMethod: ->
 
   support

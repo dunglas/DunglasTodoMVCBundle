@@ -4,16 +4,8 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>{% trans %}Symfony with Chaplin.js and Backbone.js{% endtrans %} • TodoMVC</title>
-	{% stylesheets '@DunglasTodoMVCBundle/Resources/public/assets/base.css'
-            '@DunglasTodoMVCBundle/Resources/public/css/app.css'
-        %}
-        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
-        {% endstylesheets %}
-	<!--[if IE]>
-        {% javascripts '@DunglasTodoMVCBundle/Resources/public/assets/ie.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
-	<![endif]-->
+    <link href="{{ asset('bundles/dunglastodomvc/css/app.css') }}" rel="stylesheet" media="screen">
+    <link href="{{ asset('bundles/dunglastodomvc/js/bower_components/todomvc-common/base.css') }}" rel="stylesheet" media="screen">
 </head>
 <body>
 	<section id="todoapp">
@@ -53,10 +45,7 @@
 		<p>Created by <a href="http://dunglas.fr">Kévin Dunglas</a></p>
 		<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
 	</footer>
-
-        {% javascripts '@DunglasTodoMVCBundle/Resources/public/js/vendor/require-2.1.4.js' %}
-        <script src="{{ asset_url }}"></script>
-        {% endjavascripts %}
+        <script src="{{ asset('bundles/dunglastodomvc/js/bower_components/requirejs/require.js') }}"></script>
         <script>
         window.Api = {
             get_todos: '{{ path('get_todos')|escape('js') }}'
@@ -72,12 +61,12 @@
           baseUrl: '{{ asset('bundles/dunglastodomvc/js/')  }}',
           // Specify the paths of vendor libraries
           paths: {
-            jquery: 'vendor/jquery-1.9.0',
-            underscore: 'vendor/underscore-1.4.3',
-            backbone: 'vendor/backbone-0.9.10',
-            handlebars: 'vendor/handlebars-1.0.rc.2',
-            text: 'vendor/require-text-2.0.3',
-            chaplin: 'vendor/chaplin'
+            jquery: 'bower_components/jquery/jquery',
+            underscore: 'bower_components/underscore/underscore',
+            backbone: 'bower_components/exoskeleton/exoskeleton',
+            handlebars: 'bower_components/handlebars/handlebars',
+            text: 'bower_components/requirejs-text/text',
+            chaplin: 'bower_components/chaplin/chaplin'
           },
           // Underscore and Backbone are not AMD-capable per default,
           // so we need to use the AMD wrapping of RequireJS
@@ -99,9 +88,9 @@
         });
 
         // Bootstrap the application
-        require(['application'], function (Application) {
-          var app = new Application('{{ path('dunglas_todomvc_default_index') }}');
-          app.initialize();
+        require(['application', 'routes'], function (Application, routes) {
+
+          new Application({routes: routes, root: '{{ path('todomvc_index') }}'});
         });
         </script>
 </body>

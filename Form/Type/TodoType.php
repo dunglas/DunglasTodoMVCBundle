@@ -16,7 +16,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 /**
- * Todo form
+ * The form
  *
  * @author Kévin Dunglas <dunglas@gmail.com>
  */

@@ -15,17 +15,14 @@
 
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.3.*",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
-        "twig/extensions": "1.0.*",
-        "symfony/assetic-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.3.*",
-        "sensio/distribution-bundle": "2.3.*",
-        "sensio/framework-extra-bundle": "2.3.*",
-        "sensio/generator-bundle": "2.3.*",
-        "jms/serializer-bundle": "0.12.*",
-        "friendsofsymfony/rest-bundle": "0.13.*"
+        "symfony/symfony": "~2.4",
+        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/doctrine-bundle": "~1.2",
+        "twig/extensions": "~1.0",
+        "sensio/framework-extra-bundle": "~3.0",
+        "jms/serializer-bundle": "~0.13",
+        "friendsofsymfony/rest-bundle": "~1.2",
+        "dunglas/angular-csrf-bundle": "~0.1"
     },
 
     "autoload": {
@@ -37,7 +34,7 @@
     "target-dir": "Dunglas/TodoMVCBundle",
     "extra": {
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "2.4-dev"
         }
     }
 }
