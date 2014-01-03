@@ -11,6 +11,8 @@
 
 namespace Dunglas\TodoMVCBundle\Tests\Functional;
 
+use Symfony\Component\HttpFoundation\Response;
+
 /**
  * Tests the JSON API
  *
@@ -43,7 +45,7 @@ class TodoControllerTest extends WebTestCase
         );
     }
 
-    private function assertResponseIsJson($response)
+    private function assertResponseIsJson(Response $response)
     {
         $this->assertTrue(
                 $response->headers->contains('Content-Type', 'application/json')
