@@ -41,7 +41,7 @@ class DunglasTodoMVCExtension extends Extension implements PrependExtensionInter
                     'cookie' => array(
                         'set_on' => array(
                             array(
-                                'route' => '^dunglas_todomvc_default_index$')
+                                'route' => '^todomvc_index$')
                         )
                     ),
                     'secure' => array(
