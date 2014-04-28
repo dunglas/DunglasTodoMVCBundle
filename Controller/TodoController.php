@@ -39,7 +39,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
      * Validates and saves the todo
      *
      * @param  Todo $todo
-     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @param  Request $request
      * @param  bool $new New object?
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -111,7 +111,7 @@ class TodoController extends FOSRestController implements ClassResourceInterface
      * Updates
      *
      * @param  int                                                           $id
-     * @param  \Symfony\Component\HttpFoundation\Request                     $request
+     * @param  Request                                                       $request
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      * @return \Symfony\Component\HttpFoundation\Response
      */
