@@ -98,3 +98,4 @@ This bundle has been created by [Kévin Dunglas](http://dunglas.fr).
 The CoffeeScript code is largely inspired of an old implementation of [Brunch + Chaplin TodoMVC implementation](https://github.com/addyosmani/todomvc/tree/gh-pages/labs/dependency-examples/chaplin-brunch) by [Paul Millr](http://paulmillr.com/).
 
 ![TodoMVC](https://raw.github.com/addyosmani/todomvc/gh-pages/media/logo.png)
+

@@ -12,3 +12,4 @@ before_script:
 matrix:
   allow_failures:
     - php: hhvm
+
